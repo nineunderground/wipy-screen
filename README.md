@@ -92,12 +92,22 @@ It is recommended to use a virtual environment to avoid conflicts with system pa
 # Create and activate a virtual environment
 python -m venv venv
 
-# Windows
+# Windows (PowerShell)
 venv\Scripts\activate
+
+# Windows (cmd.exe — no policy issues)
+venv\Scripts\activate.bat
 
 # Linux / macOS
 source venv/bin/activate
+```
 
+> **Windows PowerShell tip:** If you get an "execution policy" error, either switch to `cmd.exe` and use `activate.bat`, or run this once in PowerShell:
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> ```
+
+```bash
 # Install ampy
 pip install adafruit-ampy
 
@@ -123,8 +133,11 @@ It is recommended to use a virtual environment to avoid conflicts with system pa
 # Create and activate a virtual environment
 python -m venv venv
 
-# Windows
+# Windows (PowerShell)
 venv\Scripts\activate
+
+# Windows (cmd.exe — no policy issues)
+venv\Scripts\activate.bat
 
 # Linux / macOS
 source venv/bin/activate
