@@ -37,6 +37,32 @@ No external resistors needed — the OLED module has pull-ups built in.
 
 ## Setup
 
+### 0. Install Python (Windows)
+
+If you don't have Python installed, the easiest way on Windows is via [Chocolatey](https://chocolatey.org/).
+
+**Install Chocolatey** (PowerShell as admin):
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+**Install Python:**
+```powershell
+choco install python -y
+```
+
+Close and reopen your terminal after install. Verify:
+```powershell
+python --version
+pip --version
+```
+
+> **Note:** Chocolatey adds Python to your PATH automatically. No manual env var setup needed.
+
+---
+
 ### 1. Install serial driver (Windows)
 
 The WiPy uses a CP210x USB-to-serial chip. Install the driver from [Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) if your OS doesn't recognize it automatically.
