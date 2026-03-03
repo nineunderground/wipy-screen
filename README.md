@@ -60,7 +60,19 @@ Download `ssd1306.py` from the [micropython-lib repo](https://github.com/micropy
 
 #### Option B: ampy (CLI)
 
+It is recommended to use a virtual environment to avoid conflicts with system packages.
+
 ```bash
+# Create and activate a virtual environment
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux / macOS
+source venv/bin/activate
+
+# Install ampy
 pip install adafruit-ampy
 
 # Upload files (replace COM3 with your port)
@@ -70,19 +82,45 @@ ampy --port COM3 put main.py
 
 # Reset the board or run directly
 ampy --port COM3 run main.py
+
+# Deactivate when done
+deactivate
 ```
+
+> **Windows tip:** If `python` is not found, try `py -m venv venv` instead.
 
 #### Option C: rshell
 
+It is recommended to use a virtual environment to avoid conflicts with system packages.
+
 ```bash
+# Create and activate a virtual environment
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux / macOS
+source venv/bin/activate
+
+# Install rshell
 pip install rshell
 
+# Connect and copy files (replace COM3 with your port)
 rshell --port COM3
+
+# Inside rshell prompt:
 cp ssd1306.py /pyboard/
 cp boot.py /pyboard/
 cp main.py /pyboard/
-repl   # to see output
+repl   # open REPL to see output (Ctrl+X to exit)
+
+# Deactivate when done
+deactivate
 ```
+
+> **Windows tip:** rshell may require `--buffer-size 512` if you get timeouts:
+> `rshell --port COM3 --buffer-size 512`
 
 ### 4. Serial monitor
 
